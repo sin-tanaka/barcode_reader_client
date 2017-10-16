@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <video id="local_video" autoplay style="width: 320px; height: 240px; border: 1px solid black;"></video>
+    <video id="local_video" autoplay playsinline style="width: 320px; height: 240px; border: 1px solid black;"></video>
     <div>
       <button @click="startVideo()">start</button>
       <input id="uploadFile" name="image" type="file" v-on:change="draw"/>
@@ -105,10 +105,10 @@ export default {
 
     }
   },
-//  mounted: function () {
-//    this.startVideo()
+  mounted: function () {
+    this.startVideo()
 //    this.captureImage()
-//  }
+  }
 }
 </script>
 
