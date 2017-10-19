@@ -28,8 +28,8 @@ export default {
   },
   methods : {
     startVideo: function () {
-      navigator.getUserMedia = navigator.getUserMedia ||
-        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+//      navigator.getUserMedia = navigator.getUserMedia ||
+//        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
       const constraints = {
         audio: false,
         video: true
@@ -39,10 +39,10 @@ export default {
       const successCallback = function (stream) {
         window.stream = stream; // stream available to console
         if (window.URL) {
-          alert('if')
+          alert(window.navigator.userAgent.toLowerCase())
           video.src = window.URL.createObjectURL(stream);
         } else {
-          alert('else')
+          alert('else' + window.navigator.userAgent.toLowerCase())
           video.srcObject = stream;
         }
       }
@@ -51,7 +51,9 @@ export default {
         console.log('navigator.getUserMedia error: ', error);
       }
 
-      navigator.getUserMedia(constraints, successCallback, errorCallback)
+     navigator.mediaDevices.getUserMedia(constraints)
+       .then(successCallback)
+       .catch(errorCallback)
     },
     captureImage: function () {
       const video = this.$el.querySelector('video')
