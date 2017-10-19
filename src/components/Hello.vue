@@ -1,13 +1,13 @@
 <template>
   <div class="hello">
-    <video id="local_video" autoplay playsinline style="width: 320px; height: 240px; border: 1px solid black;"></video>
+    <video id="local_video" autoplay playsinline style="width: 100%; border: 1px solid black;"></video>
     <div>
       <button @click="startVideo()">start</button>
       <input id="uploadFile" name="image" type="file" v-on:change="draw"/>
       <button id="capture" @click="captureImage()">Capture</button>
       <button @click="postImage()">post</button>
     </div>
-    <canvas id="snapshot" width=320 height=240></canvas>
+    <!--<canvas id="snapshot" width=320 height=240></canvas>-->
     <div>{{ responseData }}</div>
   </div>
 </template>
