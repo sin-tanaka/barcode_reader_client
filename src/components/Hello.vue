@@ -38,13 +38,13 @@ export default {
       const video = this.$el.querySelector('video');
       const successCallback = function (stream) {
         window.stream = stream; // stream available to console
-        if (window.URL) {
-          alert(window.navigator.userAgent.toLowerCase())
-          video.src = window.URL.createObjectURL(stream);
-        } else {
-          alert('else' + window.navigator.userAgent.toLowerCase())
+//        if (window.URL) {
+//          alert(window.navigator.userAgent.toLowerCase())
+//          video.src = window.URL.createObjectURL(stream);
+//        } else {
+//          alert('else' + window.navigator.userAgent.toLowerCase())
           video.srcObject = stream;
-        }
+//        }
       }
 
       const errorCallback = function (error) {
